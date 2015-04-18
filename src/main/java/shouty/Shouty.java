@@ -13,10 +13,12 @@ public class Shouty implements Network {
     }
 
     public Person getPerson(String name) {
-        final Person person = personsByName.get(name);
+        Person person = personsByName.get(name);
         if (null == person) {
             System.err.println("No person named " + name);
-            return new Person(name, this);
+            addPerson(name);
+            person = personsByName.get(name);
+            person.setLocation(Integer.MAX_VALUE);
         }
         return person;
     }
