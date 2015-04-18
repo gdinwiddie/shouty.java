@@ -5,6 +5,10 @@ Feature: Hear Shout
   Shawn is the shouter.
   Linda is the listener.
 
+  Background:
+    Given a person named Shawn
+    And a person named Linda
+
   Scenario: Sounds of Silence
     When Shawn is quiet
     Then Linda should hear nothing

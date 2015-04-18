@@ -16,8 +16,11 @@ public class ShoutSteps {
     @Before
     public void setup() {
         system = new Shouty();
-        system.addPerson("Linda");
-        system.addPerson("Shawn");
+    }
+
+    @Given("^a person named (\\w+)$")
+    public void a_person_named(String name) throws Throwable {
+        system.addPerson(name);
     }
 
     @Given("^(\\w+) is (too far|close enough) from (\\w+)$")
